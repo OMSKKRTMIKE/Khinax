@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Cookie&family=Rouge+Script&display=swap');
+
+body {
+    font-family: 'Arial, sans-serif';
+    background: linear-gradient(135deg, #FFDDC1, #FFC2E2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    background: #FFF3E6;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.heading {
+    font-size: 2.5em;
+    color: #FF69B4;
+    margin-bottom: 20px;
+}
+
+.message {
+    font-size: 1.2em;
+    color: #FF4500;
+    margin-bottom: 20px;
+}
+
+.button {
+    padding: 10px 20px;
+    background: #FF69B4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background 0.3s;
+}
+
+.button:hover {
+    background: #FF1493;
+}
+
+.wrapper {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    background: linear-gradient(to top, #eee, transparent);
+    display: grid;
+    place-items: center;
+    display: none; /* Initially hidden */
+}
+
+.greeting {
+    font-family: 'Cookie', cursive;
+    font-size: 4rem;
+    color: #444;
+    transform: scale(0);
+}
+
+.plate {
+    position: relative;
+    width: 250px;
+    height: 75px;
+    background: #f1f1f1;
+    margin-top: 0;
+    border-radius: 50%;
+    box-shadow: 0px 3px 5px 0px #aaa;
+    display: grid;
+    place-items: center;
+}
+
+.cake-wrap {
+    position: absolute;
+    bottom: 50%;
+}
+
+.cake-base {
+    position: relative;
+    width: 200px;
+    height: 50px;
+    background: rgb(197,165,192);
+}
+
+.base-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+}
+
+.base-front:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    height: 65px;
+    transform: translateY(-50%);
+    background: inherit;
+    border-radius: 50%;
+}
+
+.base-top {
+    position: absolute;
+    width: 100%;
+    height: 65px;
+    top: 0;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background: inherit;
+}
+
+.topping-front {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #b381ae 40%, transparent);
+}
+
+.top-layer {
+    height: 30%;
+    background: #b381ae;
+}
+
+.bottom-layer {
+    position: relative;
+    height: 70%;
+    background: #b381ae;
+}
+
+.candle-container {
+    width: 200px;
+    position: absolute;
+    bottom: 60%;
+    z-index: 9999;
+    display: grid;
+    place-items: center; 
+    opacity: 0;
+}
+
+.candle-wrap {
+    position: relative;
+    width: 15px;
+}
+
+.flame-wrap {
+    position: relative;
+    z-index: 99;
+    width: 100%;
+    background: #fcc56c;
+    height: 30px;
+    transform-origin: bottom center;
+    transform: scale(0);
+    clip-path: url(#my-flame-path);
+}
+
+.candle-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    z-index: 9;
+    background: radial-gradient(#eee, #f0abf0);
+}
+
+.candle-base {
+    position: relative;
+    width: 100%;
+    height: 75px;
+    margin: 2px 0;
+    background: repeating-linear-gradient(45deg, #eee, #f0abf0 20%);
+}
+
+.candle-base:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: #eee;
+    transform: translateY(50%);
+    height: 5px;
+    width: 100%;
+    z-index: -1;
+    border-radius: 50%;
+}
+
+.candle-base:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 50%);
+    height: 10px;
+    width: 200%;
+    border-radius: 50%;
+    background: radial-gradient(#9e7199, #b381ae);
+    z-index: -2;
+}
+
+.star {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    background-color: orange;
+    clip-path: url(#my-star-path);
+    opacity: 0;
+}
+
+.star:nth-of-type(1) {
+    top: -20%;
+    left: 30%;
+}
+
+.star:nth-of-type(2) {
+    top: 30%;
+    left: 10%;
+}
+
+.star:nth-of-type(3) {
+    top: -10%;
+    left: 85%;
+}
+
+.star:nth-of-type(4) {
+    top: 35%;
+    left: 65%;
+}
+
+.star:nth-of-type(5) {
+    top: 55%;
+    left: 90%;
+}
+
+.blow-button {
+    display: none; /* Initially hidden */
+    padding: 10px 20px;
+    background: #FF69B4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 20px;
+    transition: background 0.3s;
+}
+
+.blow-button:hover {
+    background: #FF1493;
+}
+
+.svg {
+    position: absolute;
+    width: 0;
+    height: 0;
+}
